@@ -1,0 +1,83 @@
+.sidenav{
+	height:100%;
+	width:100%;
+	position:relative;/*no fixed por ahora*/	
+
+	top:0;
+	left:0;
+	background-color: #111;
+	/**/
+	overflow-x:hidden;
+}
+.sidenav a, .dropdown-btn{
+	padding: 6px 8px 6px 16px;
+	text-decoration:none;
+	font-size:20px;
+	color:#818181;
+	/**/
+	display:block;
+	border:none;
+	background: none;
+	width:100%;
+	text-align:left;
+	cursor:pointer;
+	outline:none;
+}
+.sidenav a:hover, .dropdown-btn:hover{
+	color:#f1f1f1;
+}
+.active{
+	background-color:green;
+	color:white;
+}
+.dropdown-container{
+	display:none;
+	background-color:#344423;
+	padding-left:8px;
+}
+
+.glyphicon-plus-sign{
+	float:right;
+	padding-right:8px;
+
+}
+
+
+
+@media screen and (max-width: 767px){
+	.sidenav a, .dropdown-btn{
+		/*background-color:red;*/
+		display:inline;
+		width:150px;
+		margin:0;
+
+	}
+	.sidenav{
+		/*background-color:red;*/
+		padding-top:15px;
+		overflow-x:auto; 
+		width:100%;	
+	}
+	.sidenav a{font-size:18px;}
+
+	.dropdown-container{
+		display:inline;
+		position:static;
+		width:200%;
+
+		/*text-align: right;*/
+		margin:0;
+		padding:0;
+		z-index: -90;
+	}
+	.dropdown-container a{
+		display:none;
+		text-align: left;
+		float:left;
+
+	}
+
+	/*MODAL PARA LOS SUBMENUS DE CATEGORIA*/
+	
+	
+}

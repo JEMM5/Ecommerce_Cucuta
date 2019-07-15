@@ -1,0 +1,44 @@
+#mySidenavH a {
+  z-index:50;
+  position: fixed;
+  right: -150px;
+  transition: 0.3s;
+  padding: 12px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 5px 0 0 5px;
+}
+
+#mySidenavH a:hover {
+  right: 0;
+}
+
+#emprePyme {
+  bottom: 200px;
+  background-color: #D7DF01;
+}
+
+#wsapp {
+  bottom: 140px;
+  background-color: #4CAF50;
+}
+
+#projects {
+  bottom: 80px;
+  background-color: #f44336;
+}
+
+#contact {
+  bottom: 20px;
+  background-color: #555
+}
+
+@media screen and (max-width:767px){
+#contendorLateralPyme{
+  display:none;
+  visibility:hidden;
+}
+
+}

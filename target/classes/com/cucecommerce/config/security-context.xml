@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll" />
+		<!-- MIS RECURSOS VISIBLES -->
+		<security:intercept-url pattern="/res/**" access="permitAll" />
+		
+		<security:intercept-url pattern="/fot/**" access="permitAll" />
+		<!-- ***** -->
+		<security:intercept-url pattern="/fot/**" access="permitAll" />
+		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_USER')" />
+<!-- 		<security:intercept-url pattern="/admin/misProductos/" access="hasRole('ROLE_USER')" /> -->
+<!-- 		<security:intercept-url pattern="/**" access="denyAll" /> -->
+		
+		<security:form-login password-parameter="clave"
+			username-parameter="usuario" default-target-url="/admin"
+			login-page="/" />
+
+		<security:logout invalidate-session="true"
+			logout-url="/cerrarSesion" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider
+			ref="customAuthenticationProvider">
+
+<!-- 			<security:jdbc-user-service data-source-ref="dataSource" /> -->
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<bean id="customAuthenticationProvider"
+		class="com.cucecommerce.config.CustomAuthenticationProvider" >
+	</bean>
+	<bean id="customUserDetailsService"
+		class="com.cucecommerce.config.CustomUserDetailsService">
+	</bean>
+</beans>
